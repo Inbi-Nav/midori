@@ -32,6 +32,17 @@ class UserController extends Controller
         ]);
         return response()->json($user, 201);
     }
+
+    public function update(Request $request, $id) {
+        $user = User::find($id);
+        if ($user) {
+            $user->update($request->all());
+            return response()->json($user);
+        } else {
+            return response()->json(['message'=>"usuario no encontrado"], 404);
+        }
+
+    }
 }
 
 ?>
