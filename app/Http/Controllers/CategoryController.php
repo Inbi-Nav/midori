@@ -29,4 +29,14 @@ class CategoryController extends Controller
         ]);
         return response()->json($categories, 201);
     }
+
+    public function update(Request $request, $id) {
+        $categories = Category::find($id);
+        if($categories) {
+            $categories->update($request->all());
+            return response()-> json($categories);
+        } else {
+            return response()-> json(['message' => 'Categoria no encontrada', 404]) ;
+        }
+    }
 }
