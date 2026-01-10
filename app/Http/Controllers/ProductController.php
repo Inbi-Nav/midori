@@ -35,4 +35,14 @@ class ProductController extends Controller
         ]);
         return response() ->json ($products, 201);
     }
+
+    public function update (Request $request, $id) {
+        $products = Product::find($id);
+        if ($products) {
+            $products -> update ($request->all());
+            return response()-> json ($products);
+        } else {
+            return response() ->json (['message' => 'Producto no encontrado'], 404);
+        }
+    }
 }
