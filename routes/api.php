@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{id}', [UserController::class, 'show']);
@@ -35,4 +36,6 @@ Route::get('/order-items/{id}', [OrderItemController::class, 'show']);
 Route::post('/order-items', [OrderItemController::class, 'store']);
 Route::put('/order-items/{id}', [OrderItemController::class, 'update']);
 Route::delete('/order-items/{id}', [OrderItemController::class, 'destroy']);
+Route::get('/payments', [PaymentController::class, 'index']);
+Route::get('/payments/{id}', [PaymentController::class, 'show']);
 ?>
