@@ -20,4 +20,14 @@ class PaymentController extends Controller
             return response() -> json (['message' => 'Pago no encontrado'], 404);
         }
     }
+
+    public function store(Request $request) {
+        $payments = Payment::create([
+            'order_id' => $request ->order_id, 
+            'amount' => $request -> amount,
+            'payment_method' => $request -> payment_method,
+            'status' => $request -> status
+        ]);
+        return response()-> json ($payments, 201);
+    }
 }
