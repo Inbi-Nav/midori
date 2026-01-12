@@ -3,7 +3,7 @@
 ## Descripción del proyecto
 **Midori** es una tienda online desarrollada con **Laravel**, inspirada de **japon**.  
 El proyecto permite la venta de productos como utensilios, accesorios y adornos 
-
+  
 ---
 
 ## Tecnologías y lenguajes utilizados

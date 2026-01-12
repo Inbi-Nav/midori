@@ -53,7 +53,6 @@ class UserController extends Controller
         return response()->json(['message' => 'usuario no encontrado'], 404);
         }
     }
-
 }
 
 ?>
