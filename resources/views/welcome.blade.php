@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body class="bg-stone-50">
-    <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="/" class="text-3xl font-bold text-emerald-700" style="font-family: 'Noto Serif JP', serif;">
@@ -85,7 +83,7 @@
         <div class="max-w-7xl mx-auto px-6 text-center">
             <p class="text-2xl text-white mb-2" style="font-family: 'Noto Serif JP', serif;">緑 Midori</p>
             <p class="text-sm">Don't let you joy wait</p>
-            <p class="text-xs mt-4">© {{ date('Y') }} Midori</p>
+            <p class="text-xs mt-4">© 2026 Midori</p>
         </div>
     </footer>
 </body>
