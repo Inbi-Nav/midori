@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,7 +42,7 @@
             日本文化の美しさを世界へ
             </p>
             <p class="text-lg text-stone-500 mb-10 max-w-2xl mx-auto">
-            A quiet journey into Japanese culture.
+            A quiet journey into Japanese culture
             </p>
             <a href="{{ route('register') }}" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-lg font-semibold rounded-full hover:from-emerald-700 hover:to-teal-700 transition-all shadow-xl shadow-emerald-600/30 transform hover:scale-105">
                 Start Your Journey
@@ -83,7 +83,7 @@
     <footer class="bg-stone-900 text-stone-400 py-10">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <p class="text-2xl text-white mb-2" style="font-family: 'Noto Serif JP', serif;">緑 Midori</p>
-            <p class="text-sm">Don't let you joy wait</p>
+            <p class="text-sm">Luxury in simplicity</p>
             <p class="text-xs mt-4">© {{ date('Y') }} Midori</p>
         </div>
     </footer>
