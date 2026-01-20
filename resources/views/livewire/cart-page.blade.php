@@ -39,13 +39,23 @@
     @endforelse
 
     @if(count($items))
-        <div class="mt-10 flex justify-end">
+        <div class="mt-10 flex justify-end gap-4 items-center">
+    
             <div class="bg-white rounded-xl shadow px-6 py-4">
                 <p class="text-gray-500 text-sm">Total</p>
                 <p class="text-2xl font-bold text-green-600">
                     €{{ number_format($total, 2) }}
                 </p>
             </div>
+    
+            <a
+                href="{{ route('checkout') }}"
+                class="bg-green-600 text-white px-6 py-4 rounded-xl font-semibold hover:bg-green-700 transition"
+            >
+                Proceed to checkout →
+            </a>
+    
         </div>
     @endif
+
 </div>

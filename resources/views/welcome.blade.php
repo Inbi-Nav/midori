@@ -26,7 +26,7 @@
         <div class="leaf text-green-500 text-2xl">🍃</div>
     </div>
 
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-pink-100 shadow-sm">
+    <nav class="fixed top-0 left-0 right-0 z-50  opacity-80 bg-white/80 backdrop-blur-lg border-b border-pink-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center space-x-3">
@@ -35,9 +35,8 @@
                     </div>
                     <span class="zen-font text-2xl font-bold bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">Midori</span>
                 </div>
-                
                 <div class="flex items-center space-x-4">
-                    <a href="{{ route('login') }}" class="px-5 py-2.5 text-green-700 font-medium hover:text-green-800 transition-colors">
+                    <a href="{{ route('login') }}" class="px-5 py-2.5    text-green-500 font-medium hover:text-green-800 transition-colors">
                         Login
                     </a>
                     <a href="{{ route('register') }}" class="px-6 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white font-medium rounded-full hover:from-green-600 hover:to-green-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
@@ -69,10 +68,16 @@
                 <p class="text-lg text-gray-500 mb-12 max-w-xl mx-auto">
                     A quiet journey into Japanese culture
                 </p>
+                 <a href="{{ route('register') }}" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-lg font-semibold rounded-full hover:from-emerald-700 hover:to-teal-700 transition-all shadow-xl shadow-emerald-600/30 transform hover:scale-105">
+                Start Your Journey
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
             </div>
         </div>
     </section>
-    <section class="py-20 px-4 relative z-10">
+    <section class="py-1 px-4 relative z-10">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <span class="text-pink-500 font-medium tracking-wider uppercase text-sm">Explore Our Collections</span>

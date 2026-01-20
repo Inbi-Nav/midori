@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CheckoutController;
 use App\Livewire\CartPage;
 
 
@@ -33,3 +34,18 @@ Route::middleware('auth')->group(function () {
 Route::get('/cart', CartPage::class)->name('cart');
 
 require __DIR__.'/auth.php';
+
+Route::middleware('auth')->group(function () {
+    Route::get('/checkout', [CheckoutController::class, 'show'])->name('checkout');
+    Route::post('/checkout/pay', [CheckoutController::class, 'pay'])->name('checkout.pay');
+    Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])->name('checkout.success');
+});
+
+Route::middleware('auth')->get('/my-orders', function () {
+    $orders = auth()->user()
+        ->orders()
+        ->latest()
+        ->get();
+
+    return view('orders.my-orders', compact('orders'));
+})->name('orders.mine');
