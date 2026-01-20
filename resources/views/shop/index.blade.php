@@ -234,9 +234,6 @@
             </div>
         </section>
     </main> 
-        <div  x-show="open" x-transition @click.outside="open = false" class="absolute bottom-16 right-0">
-            @livewire('cart')
-        </div>
     </div>
     @livewireScripts
 </body>

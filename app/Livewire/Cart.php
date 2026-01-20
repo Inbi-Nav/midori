@@ -19,29 +19,6 @@ class Cart extends Component {
         $this->items = Cache::get($this->cartKey(), []);
     }
 
-    #[On('add-to-cart')]
-    public function add(int $productId) {
-        if (!Auth::check()) return;
-        $this->items = Cache::get($this->cartKey(), []);
-        $product = Product::findOrFail($productId);
-
-        if ($product->stock <= 0) return;
-
-        if (isset($this->items[$productId])) {
-        $this->items[$productId]['quantity']++;
-        } else {
-        $this->items[$productId] = [
-            'id' => $product->id,
-            'name' => $product->name,
-            'price' => $product->price,
-            'image' => $product->image_url,
-            'quantity' => 1,];
-        }   
-
-        Cache::forever($this->cartKey(), $this->items);
-        $this->dispatch('cart-updated');
-    }
-
     public function render() {
         return view('livewire.cart');
     }
