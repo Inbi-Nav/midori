@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CheckoutController;
 use App\Livewire\CartPage;
+use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\AdminUserController;
 
 
 Route::get('/', function () {
@@ -41,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])->name('checkout.success');
 });
 
+
 Route::middleware('auth')->get('/my-orders', function () {
     $orders = auth()->user()
         ->orders()
@@ -49,3 +52,18 @@ Route::middleware('auth')->get('/my-orders', function () {
 
     return view('orders.my-orders', compact('orders'));
 })->name('orders.mine');
+
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        Route::get('/orders', [AdminOrderController::class, 'index'])
+            ->name('orders.index');
+
+        Route::patch('/orders/{order}/status', [AdminOrderController::class, 'updateStatus'])
+            ->name('orders.status');
+
+        Route::get('/users', [AdminUserController::class, 'index'])
+            ->name('users.index');
+    });

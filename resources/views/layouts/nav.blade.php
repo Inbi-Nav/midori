@@ -28,18 +28,33 @@
                         class="w-10 h-10 rounded-full shadow">
                 </button>
 
-                <div
+               <div
                     x-show="open"
                     @click.outside="open = false"
                     x-transition
                     class="absolute right-0 mt-3 w-48 bg-white rounded-xl shadow-lg overflow-hidden text-sm">
 
-                    <a href="{{ route('profile.edit') }}" class="block px-4 py-2 hover:bg-gray-100">👤 Profile</a>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">📦 My orders</a>
+                    <a href="{{ route('profile.edit') }}"
+                       class="block px-4 py-2 hover:bg-gray-100">
+                        👤 Profile
+                    </a>
+
+                    <a href="{{ route('orders.mine') }}"
+                       class="block px-4 py-2 hover:bg-gray-100">
+                        📦 My orders
+                    </a>
+
+                    @if(auth()->user()->isAdmin())
+                        <a href="{{ route('admin.orders.index') }}"
+                           class="block px-4 py-2 hover:bg-gray-100 text-green-700 font-medium">
+                            🛠 Admin panel
+                        </a>
+                    @endif
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button class="w-full text-left px-4 py-2 hover:bg-gray-100">
+                        <button
+                            class="w-full text-left px-4 py-2 hover:bg-gray-100">
                             🚪 Logout
                         </button>
                     </form>
