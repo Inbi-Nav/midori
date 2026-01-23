@@ -1,12 +1,23 @@
 # Midori
 
-## Descripción del proyecto
-**Midori** es una tienda online desarrollada con **Laravel**, inspirada de **japon**.  
-El proyecto permite la venta de productos como utensilios, accesorios y adornos 
-  
+Midori es una aplicación **e-commerce** desarrollada con **PhP/Laravel-Blade/Tailwind**, inspirada a cultutra japonesa.  
+El proyecto simula una tienda online completa, con gestión de usuarios, pedidos, pagos simulados y un panel de administración.
+
 ---
 
-## Tecnologías y lenguajes utilizados
+## Descripción del proyecto
+
+**Midori** permite a los usuarios registrarse, explorar un productos, añadirlos a una cesta, realizar pedidos y consultar su historial de compras.  
+Los administradores pueden gestionar pedidos y actualizar su estado a lo largo del proceso de compra.
+
+El proyecto ha sido desarrollado como **proyecto académico**, con énfasis en:
+- Arquitectura MVC
+- Diseño relacional de base de datos
+- Experiencia de usuario (UI/UX)
+
+---
+
+## Tecnologías y herramientas utilizadas
 
 - **PHP**
 - **Laravel**
@@ -14,59 +25,86 @@ El proyecto permite la venta de productos como utensilios, accesorios y adornos
 - **Blade Templates**
 - **Tailwind CSS**
 - **Vite**
+- **Livewire (cesta)**
+- **Thunder Client (testing API)**
 
 ---
 
-## Flujo de uso
+### Usuario estándar
 
-1. El usuario se registra en el sistema.
-2. Explora el catálogo de productos por categorías.
-3. Selecciona productos y realiza un pedido.
-4. El pedido se guarda en la base de datos junto con sus productos.
-5. Se registra un pago simulado asociado al pedido.
-6. El administrador puede cambiar el estado del pedido.
+- Registro e inicio de sesión
+- Navegación por el catálogo
+- Añadir productos a la cesta
+- Realizar pedidos (pago simulado)
+- Ver historial de pedidos
+- Consultar estado del pedido (pending → shipped → delivered)
+- Cancelar pedidos mientras estén en estado `pending` o `paid`
+
+### Administrador
+
+- Acceso a panel de administración
+- Visualización de todos los pedidos
+- Cambio de estado de pedidos
+- Gestión del flujo del pedido
+
+**Credenciales del administrador (demo):**
+
+**Email:** admin@midori.com
+**Contraseña:** midori2026
+
+---
+
+## Flujo de uso de la aplicación
+
+1. El usuario se registra e inicia sesión.
+2. Accede a la tienda y explora productos por categorías.
+3. Añade productos a la cesta.
+4. Finaliza la compra mediante un pago simulado.
+5. Se crea un pedido con sus productos asociados.
+6. El usuario visualiza el pedido en *My Orders*.
+7. El administrador gestiona el estado del pedido.
 
 ---
 
 ## Base de datos
-La base de datos está diseñada de forma relacional e incluye las siguientes entidades:
 
-- **users**: usuarios del sistema (cliente y administrador)
-- **categoria**: categorías de productos
-- **producto**: productos disponibles
-- **pedido**: pedidos realizados por los usuarios
-- **itemPedido**: productos incluidos en cada pedido
-- **pago**: pagos simulados asociados a los pedidos
+La base de datos sigue un diseño **relacional** y está compuesta por:
 
-La cesta de compra se maneja como una estructura temporal y no se persiste en la base de datos.
+- **users** → Usuarios (cliente / admin)
+- **categories** → Categorías de productos
+- **products** → Productos disponibles
+- **orders** → Pedidos
+- **order_items** → Productos incluidos en cada pedido
+- **payments** → Pagos simulados
 
 ---
 
 ## Estructura del proyecto
+
 **app/**
   - Http/
-   --  Controllers/          # Controladores (lógica de las peticiones)
- - Models/                   # Modelos Eloquent (base de datos)
- - Providers/               # Proveedores de servicios de Laravel
+   --  Controllers/          
+ - Models/                   
+ - Providers/               
 
-**config/**                     # Configuración de la aplicación
+**config/**                 
 
  **database/**
- -  migrations/              # Migraciones de la base de datos
- -  seeders/                 # Datos iniciales (seeders)
+ -  migrations/              
+ -  seeders/                 
 
  **public/**
-  - index.php                   # Punto de entrada de la aplicación
-  - .htaccess                   # Configuración del servidor
-  - assets/                  # Archivos accesibles desde el navegador
-
+  - index.php                   
+  - .htaccess                   
+  - assets/                  
 **resources/**
- - views/                   # Vistas Blade
- - css/                     # Estilos (Tailwind CSS)
+ - views/                   
+ - css/                     
 
 **routes/**
- - web.php                     # Rutas web
- - console.php                 # Comandos de consola (Artisan)
+ - web.php                     
+ - api.php                      
+ - console.php                 
 
-**storage/**                   # Logs, cache y archivos
-**tests/**                       # Pruebas
+**storage/**                   
+**tests/**                       
