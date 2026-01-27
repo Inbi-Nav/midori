@@ -105,23 +105,24 @@ La base de datos sigue un diseño **relacional** y está compuesta por:
 
 ## INSTALACION
 
-# 1. Clonar el repositorio
-# 3. Instalar dependencias PHP
+**1. Clonar el repositorio**
+
+**2. Instalar dependencias PHP**
 composer install
 
-# 4. Instalar dependencias Frontend
+**4. Instalar dependencias Frontend**
 npm install
 
-# 5. Crear el archivo de entorno
+**5. Crear el archivo de entorno**
 cp .env.example .env
 
-# 6. Generar la clave de la aplicación
+**6. Generar la clave de la aplicación**
 php artisan key:generate
 
-# 7. Vite
+**7. Vite**
 npm run dev
 
-# 8. Laravel
+**8. Laravel**
 php artisan serve
 
 **Credenciales del administrador (demo):**
